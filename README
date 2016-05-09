@@ -1,0 +1,10 @@
+subclass of GLApp that uses ImGui
+
+depends on:
+lua-ext (https://github.com/thenumbernine/lua-ext)
+lua-glapp (https://github.com/thenumbernine/lua-glapp)
+... which links against the sdl from ufo https://github.com/malkia/ufo
+lua-ffi-bindings (https://github.com/thenumbernine/lua-ffi-bindings)
+imgui (https://github.com/ocornut/imgui)
+... built with its examples/sdl_opengl_example/imgui_impl_sdl.cpp
+... and with c bindings at https://github.com/Extrawurst/cimgui
