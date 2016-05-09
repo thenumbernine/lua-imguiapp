@@ -18,9 +18,6 @@ function ImGuiApp:event(_, eventPtr)
 end
 
 function ImGuiApp:update()
-	gl.glClearColor(.4, .8, .8, 1)
-	gl.glClear(gl.GL_COLOR_BUFFER_BIT)
-
 	ig.ImGui_ImplSdl_NewFrame(self.window)
 	
 	self:updateGUI()
