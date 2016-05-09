@@ -6,7 +6,7 @@ local gl = require 'ffi.OpenGL'
 local ImGuiApp = class(GLApp)
 
 function ImGuiApp:initGL()
-	ig.ImGui_ImplSdl_Init(window)
+	ig.ImGui_ImplSdl_Init(self.window)
 end
 
 function ImGuiApp:exit()
