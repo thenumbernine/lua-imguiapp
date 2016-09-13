@@ -14,6 +14,7 @@ function ImGuiApp:exit()
 end
 
 function ImGuiApp:event(_, eventPtr)
+	assert(eventPtr, "forgot to pass the eventPtr")
 	ig.ImGui_ImplSdl_ProcessEvent(eventPtr)
 end
 
