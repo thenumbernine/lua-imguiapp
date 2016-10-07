@@ -13,7 +13,7 @@ function ImGuiApp:exit()
 	ig.ImGui_ImplSdl_Shutdown()
 end
 
-function ImGuiApp:event(_, eventPtr)
+function ImGuiApp:event(event, eventPtr)
 	assert(eventPtr, "forgot to pass the eventPtr")
 	ig.ImGui_ImplSdl_ProcessEvent(eventPtr)
 end
