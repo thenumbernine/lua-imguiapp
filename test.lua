@@ -3,7 +3,7 @@ local class = require 'ext.class'
 local ImGuiApp = require 'imguiapp'
 local ffi = require 'ffi'
 local ig = require 'ffi.imgui'
-local gl = require 'ffi.OpenGL'
+local gl = require 'gl'
 
 local TestApp = class(ImGuiApp)
 
