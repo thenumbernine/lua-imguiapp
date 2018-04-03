@@ -6,20 +6,22 @@ local gl = require 'gl'
 local ImGuiApp = class(GLApp)
 
 function ImGuiApp:initGL()
-	ig.ImGui_ImplSdl_Init(self.window)
+	self.imguiCtx = ig.igCreateContext(nil)
+	ig.ImGui_ImplSdlGL2_Init(self.window)
 end
 
 function ImGuiApp:exit()
-	ig.ImGui_ImplSdl_Shutdown()
+	ig.ImGui_ImplSdlGL2_Shutdown()
+	ig.igDestroyContext(self.imguiCtx)
 end
 
 function ImGuiApp:event(event, eventPtr)
 	assert(eventPtr, "forgot to pass the eventPtr")
-	ig.ImGui_ImplSdl_ProcessEvent(eventPtr)
+	ig.ImGui_ImplSdlGL2_ProcessEvent(eventPtr)
 end
 
 function ImGuiApp:update()
-	ig.ImGui_ImplSdl_NewFrame(self.window)
+	ig.ImGui_ImplSdlGL2_NewFrame(self.window)
 	
 	self:updateGUI()
 	
