@@ -6,7 +6,7 @@ local gl = require 'gl'
 local ImGuiApp = class(GLApp)
 
 function ImGuiApp:initGL()
-	self.imguiCtx = ig.igCreateContext(nil)
+	self.imguiCtx = ig.igCreateContext(nil, nil)
 	ig.ImGui_ImplSdlGL2_Init(self.window)
 end
 
