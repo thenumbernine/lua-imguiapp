@@ -14,10 +14,14 @@ function TestApp:update(...)
 	TestApp.super.update(self, ...)
 end
 
-local checkbox = ffi.new('bool[1]')
+local checkbox = ffi.new('bool[1]', 1)
 function TestApp:updateGUI()
 	ig.igText('Hello, world!')
 	ig.igCheckbox('checkbox', checkbox)
+
+	if checkbox[0] then
+		ig.igShowDemoWindow(checkbox)
+	end
 end
 
 local testApp = TestApp()

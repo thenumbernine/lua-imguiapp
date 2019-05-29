@@ -1,33 +1,35 @@
 local class = require 'ext.class'
 local GLApp = require 'glapp'
-local ig = require 'ffi.imgui'
+local imgui_sdl = require 'imgui.sdl'
+local ig = imgui_sdl.lib
 local gl = require 'gl'
 
 local ImGuiApp = class(GLApp)
 
 function ImGuiApp:initGL()
-	self.imguiCtx = ig.igCreateContext(nil, nil)
-	ig.ImGui_ImplSdlGL2_Init(self.window)
+	self.imguiCtx = imgui_sdl.Imgui_Impl_SDL_opengl2()
+	self.imguiCtx:Init(self.window, self.context)
+	ig.igStyleColorsDark(nil)
 end
 
 function ImGuiApp:exit()
-	ig.ImGui_ImplSdlGL2_Shutdown()
-	ig.igDestroyContext(self.imguiCtx)
+	self.imguiCtx:destroy()
 end
 
 function ImGuiApp:event(event, eventPtr)
 	assert(eventPtr, "forgot to pass the eventPtr")
-	ig.ImGui_ImplSdlGL2_ProcessEvent(eventPtr)
+	ig.ImGui_ImplSDL2_ProcessEvent(eventPtr)
 end
 
 function ImGuiApp:update()
-	ig.ImGui_ImplSdlGL2_NewFrame(self.window)
-	
+	self.imguiCtx:NewFrame()
+
 	self:updateGUI()
 	
-	--glViewport(0, 0, (int)ImGui::GetIO().DisplaySize.x, (int)ImGui::GetIO().DisplaySize.y);
+	--glViewport(0, 0, (int)ImGui::GetIO().DisplaySize.x, (int)ImGui::GetIO().DisplaySize.y)
 	gl.glViewport(0, 0, self.width, self.height)
-	ig.igRender()
+	
+	self.imguiCtx:Render()
 end
 
 function ImGuiApp:updateGUI()
