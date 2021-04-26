@@ -10,7 +10,8 @@ Subclass of GLApp that uses ImGui.
 For ImGui C bindings:
 - https://github.com/Extrawurst/cimgui
 
-Build this with its `examples/imgui_impl_sdl.cpp` and `examples/imgui_impl_opengl2.cpp` added to the project.
+Build this with its `backends/imgui_impl_sdl.cpp` and `backends/imgui_impl_opengl2.cpp` added to the project.
+Also make sure to set in the cimgui Makefile: `CXXFLAGS += "-DIMGUI_IMPL_API=extern \"C\""`
 
 For LuaJIT wrappers to those C bindings:
 - https://github.com/sonoro1234/LuaJIT-ImGui
