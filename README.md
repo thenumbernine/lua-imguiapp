@@ -13,6 +13,7 @@ For ImGui C bindings:
 I'm currently using the v1.79 API.
 
 Build this with its `examples/imgui_impl_sdl.cpp` and `examples/imgui_impl_opengl2.cpp` added to the project.
+Also for Linux, sure to set in the cimgui Makefile: `CXXFLAGS += "-DIMGUI_IMPL_API=extern \"C\""`
 
 For LuaJIT wrappers to those C bindings:
 - https://github.com/sonoro1234/LuaJIT-ImGui
