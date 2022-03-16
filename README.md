@@ -19,4 +19,5 @@ For LuaJIT wrappers to those C bindings:
 - https://github.com/sonoro1234/LuaJIT-ImGui
 
 This expects the subfolder `lua/imgui` to be in `LUA_PATH`.
-I had to comment out a few sections of the imgui luajit API since I didn't build with all components.
+I had to comment out a few sections of the imgui luajit API since I didn't build with all components.  Yeah I could've just re-run the binding script but I'm lazy.
+I also had to comment out the `struct tm` and `typedef void FILE` parts in `imgui/cdefs.lua` and replace them with `require 'ffi.c.time'` and `require 'ffi.c.stdio'` found in my `lua-ffi-bindings` project.
