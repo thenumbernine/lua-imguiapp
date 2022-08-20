@@ -1,14 +1,16 @@
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=KYWUWS86GSFGL)
+
 Subclass of GLApp that uses ImGui.
 
 ### Dependencies:
 
-- https://github.com/thenumbernine/lua-ext
-- https://github.com/thenumbernine/lua-gl
-- https://github.com/thenumbernine/lua-glapp
-- https://github.com/thenumbernine/lua-ffi-bindings
+- [lua-ext](https://github.com/thenumbernine/lua-ext)
+- [lua-gl](https://github.com/thenumbernine/lua-gl)
+- [lua-glapp](https://github.com/thenumbernine/lua-glapp)
+- [lua-ffi-bindings](https://github.com/thenumbernine/lua-ffi-bindings)
 
 For ImGui C bindings:
-- https://github.com/cimgui/cimgui
+- [cimgui](https://github.com/cimgui/cimgui)
 
 I'm currently using the cimgui v1.87dock API.
 
