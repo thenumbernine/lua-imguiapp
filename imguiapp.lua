@@ -7,7 +7,7 @@ local ImGuiApp = class(GLApp)
 
 function ImGuiApp:initGL()
 	self.imguiCtx = ig.igCreateContext(nil)
-    ig.ImGui_ImplSDL2_InitForOpenGL(self.window, self.context)
+    ig.ImGui_ImplSDL2_InitForOpenGL(self.window, self.sdlCtx)
     ig.ImGui_ImplOpenGL2_Init()
 	ig.igStyleColorsDark(nil)
 end
