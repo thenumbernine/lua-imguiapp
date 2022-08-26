@@ -5,6 +5,6 @@ I am returning it as a function so that it can be run multiple times without cac
 local class = require 'ext.class'
 local OrbitBehavior = require 'glapp.orbit'
 local ImGuiApp = require 'imguiapp'
-return function()
-	return class(OrbitBehavior(ImGuiApp))
+return function(args)
+	return class(OrbitBehavior(ImGuiApp), args)
 end
