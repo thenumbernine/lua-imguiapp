@@ -29,10 +29,10 @@ function ImGuiApp:update()
     ig.igNewFrame()
 
 	self:updateGUI()
-	
+
 	--glViewport(0, 0, (int)ImGui::GetIO().DisplaySize.x, (int)ImGui::GetIO().DisplaySize.y)
 	gl.glViewport(0, 0, self.width, self.height)
-	
+
     ig.igRender()
     ig.ImGui_ImplOpenGL2_RenderDrawData(ig.igGetDrawData())
 end

@@ -9,7 +9,9 @@ local ffi = require 'ffi'
 local ig = require 'imgui'
 local gl = require 'gl'
 
+--[[
 local fontFilename = ... or 'font.ttf'
+--]]
 
 local TestApp = class(ImGuiApp)
 

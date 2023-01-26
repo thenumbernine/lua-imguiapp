@@ -7,14 +7,17 @@ description = {
 	summary = "Subclass of GLApp that uses ImGui.",
 	detailed = "Subclass of GLApp that uses ImGui.",
 	homepage = "https://github.com/thenumbernine/lua-imguiapp",
-	license = "MIT"
+	license = "MIT",
 }
 dependencies = {
-	"lua >= 5.1"
+	"lua >= 5.1",
 }
 build = {
 	type = "builtin",
 	modules = {
-		imguiapp = "imguiapp.lua"
-	}
+		["imguiapp"] = "imguiapp.lua",
+		["imguiapp.tests.font"] = "tests/font.lua",
+		["imguiapp.tests.test"] = "tests/test.lua",
+		["imguiapp.withorbit"] = "withorbit.lua"
+	},
 }
