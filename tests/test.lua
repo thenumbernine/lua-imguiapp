@@ -1,9 +1,8 @@
 #!/usr/bin/env luajit
 local class = require 'ext.class'
-local ImGuiApp = require 'imguiapp'
-local ffi = require 'ffi'
-local ig = require 'imgui'
 local gl = require 'gl'
+local ig = require 'imgui'
+local ImGuiApp = require 'imguiapp'
 
 local TestApp = class(ImGuiApp)
 
@@ -14,12 +13,13 @@ function TestApp:update(...)
 	TestApp.super.update(self, ...)
 end
 
-local checkbox = ffi.new('bool[1]', 1)
+local guivars = {checkbox = true}
 function TestApp:updateGUI()
 	ig.igText('Hello, world!')
-	ig.igCheckbox('checkbox', checkbox)
+	
+	ig.luatableCheckbox('checkbox', guivars, 'checkbox')
 
-	if checkbox[0] then
+	if guivars.checkbox then
 		ig.igShowDemoWindow(checkbox)
 	end
 end
