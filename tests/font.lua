@@ -58,4 +58,4 @@ function TestApp:updateGUI()
 end
 
 local testApp = TestApp()
-testApp:run()
+return testApp:run()
