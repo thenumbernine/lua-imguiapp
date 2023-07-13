@@ -1,7 +1,8 @@
 #!/usr/bin/env luajit
 
 -- https://github.com/ocornut/imgui/blob/master/docs/FONTS.md
---  Trying to use custon fonts.  no luck yet I guess.
+--  Trying to use custon fonts.
+-- seems FontAtlas->Build() alone doesn't work, you gotta copy from ImGui the font tex data, make a GL tex out of it, then re-assign the GL tex back to ImGUi
 
 local class = require 'ext.class'
 local ImGuiApp = require 'imguiapp'
