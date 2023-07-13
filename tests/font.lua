@@ -87,6 +87,9 @@ print('font', self.font)
 --]]
 	local io = ig.igGetIO()
 print('io', io)
+	
+	-- can I just call this once here?  nope. needs to be every frame.
+	--ig.igPushFont(self.font)
 end
 
 function TestApp:update(...)
@@ -98,12 +101,13 @@ end
 
 local checkbox = ffi.new('bool[1]', 1)
 function TestApp:updateGUI()
-	ig.igBegin('test', nil, 0)
+	-- every frame? yup
 	ig.igPushFont(self.font)
+	ig.igBegin('test', nil, 0)
 	ig.igText('Hello, world!')
 	ig.igCheckbox('checkbox', checkbox)
-	ig.igPopFont()
 	ig.igEnd()
+	ig.igPopFont()
 end
 
 local testApp = TestApp()
