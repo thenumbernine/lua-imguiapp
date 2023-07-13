@@ -13,15 +13,13 @@ function TestApp:update(...)
 	TestApp.super.update(self, ...)
 end
 
-local guivars = {checkbox = true}
+--local guivars = {checkbox = true}
 function TestApp:updateGUI()
-	ig.igText('Hello, world!')
-	
-	ig.luatableCheckbox('checkbox', guivars, 'checkbox')
-
-	if guivars.checkbox then
-		ig.igShowDemoWindow(checkbox)
-	end
+	--ig.igText('Hello, world!')
+	--ig.luatableCheckbox('checkbox', guivars, 'checkbox')
+	--if guivars.checkbox then
+	ig.igShowDemoWindow(checkbox)
+	--end
 end
 
 local testApp = TestApp()
