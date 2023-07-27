@@ -8,12 +8,12 @@ local ImGuiApp = class(GLApp)
 function ImGuiApp:initGL()
 	self.imguiCtx = ig.igCreateContext(nil)
     ig.ImGui_ImplSDL2_InitForOpenGL(self.window, self.sdlCtx)
-    ig.ImGui_ImplOpenGL2_Init()
+    ig.ImGui_ImplOpenGL3_Init(self.glslVersion)	-- nil => null => default
 	ig.igStyleColorsDark(nil)
 end
 
 function ImGuiApp:exit()
-    ig.ImGui_ImplOpenGL2_Shutdown()
+    ig.ImGui_ImplOpenGL3_Shutdown()
     ig.ImGui_ImplSDL2_Shutdown()
     ig.igDestroyContext(self.imguiCtx)
 end
@@ -24,7 +24,7 @@ function ImGuiApp:event(event, eventPtr)
 end
 
 function ImGuiApp:update()
-    ig.ImGui_ImplOpenGL2_NewFrame()
+    ig.ImGui_ImplOpenGL3_NewFrame()
     ig.ImGui_ImplSDL2_NewFrame()
     ig.igNewFrame()
 
@@ -34,7 +34,7 @@ function ImGuiApp:update()
 	gl.glViewport(0, 0, self.width, self.height)
 
     ig.igRender()
-    ig.ImGui_ImplOpenGL2_RenderDrawData(ig.igGetDrawData())
+    ig.ImGui_ImplOpenGL3_RenderDrawData(ig.igGetDrawData())
 end
 
 function ImGuiApp:updateGUI()
