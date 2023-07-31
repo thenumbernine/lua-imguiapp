@@ -7,7 +7,7 @@
 local class = require 'ext.class'
 local ImGuiApp = require 'imguiapp'
 local ffi = require 'ffi'
-require 'ffi.c.stdlib'	-- free()
+require 'ffi.req' 'c.stdlib'	-- free()
 local ig = require 'imgui'
 local gl = require 'gl'
 
