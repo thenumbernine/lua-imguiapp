@@ -1,9 +1,8 @@
-local class = require 'ext.class'
 local GLApp = require 'glapp'
 local ig = require 'imgui'
 local gl = require 'gl'
 
-local ImGuiApp = class(GLApp)
+local ImGuiApp = GLApp:subclass()
 
 function ImGuiApp:initGL()
 	self.imguiCtx = ig.igCreateContext(nil)

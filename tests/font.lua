@@ -4,16 +4,14 @@
 --  Trying to use custon fonts.
 -- seems FontAtlas->Build() alone doesn't work, you gotta copy from ImGui the font tex data, make a GL tex out of it, then re-assign the GL tex back to ImGUi
 
-local class = require 'ext.class'
 local ImGuiApp = require 'imguiapp'
 local ffi = require 'ffi'
-require 'ffi.req' 'c.stdlib'	-- free()
 local ig = require 'imgui'
 local gl = require 'gl'
 
 local fontFilename = ... or 'font.ttf'
 
-local TestApp = class(ImGuiApp)
+local TestApp = ImGuiApp:subclass()
 
 function TestApp:initGL(...)
 	TestApp.super.initGL(self, ...)
@@ -82,6 +80,7 @@ print('font', self.font)
 			t = gl.GL_CLAMP_TO_EDGE,
 		},
 	}
+	require 'ffi.req' 'c.stdlib'	-- free()
 	ffi.C.free(outPixels[0])	-- just betting here I have to free this myself ...
 	ig.ImFontAtlas_SetTexID(self.fontAtlas, ffi.cast('ImTextureID', self.fontTex.id))
 --]]

@@ -1,10 +1,9 @@
 #!/usr/bin/env luajit
-local class = require 'ext.class'
 local gl = require 'gl'
 local ig = require 'imgui'
 local ImGuiApp = require 'imguiapp'
 
-local TestApp = class(ImGuiApp)
+local TestApp = ImGuiApp:subclass()
 
 function TestApp:update(...)
 	gl.glClearColor(.4, .8, .8, 1)
