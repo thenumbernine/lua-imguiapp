@@ -25,13 +25,13 @@ function App:update()
 end
 
 function App:updateGUI()
-		if ig.igBeginMainMenuBar() then
-			if ig.igBeginMenu'File' then
-				ig.luatableMenuItem('Console', nil, self, 'consoleOpen')
-				ig.igEndMenu()
-			end
-			ig.igEndMainMenuBar()
+	if ig.igBeginMainMenuBar() then
+		if ig.igBeginMenu'File' then
+			ig.luatableMenuItem('Console', nil, self, 'consoleOpen')
+			ig.igEndMenu()
 		end
+		ig.igEndMainMenuBar()
+	end
 
 	if self.consoleOpen then
 		ig.luatableBegin('Console', self, 'consoleOpen')
