@@ -15,9 +15,11 @@ function ImGuiApp:exit()
     ig.ImGui_ImplOpenGL3_Shutdown()
     ig.ImGui_ImplSDL2_Shutdown()
     ig.igDestroyContext(self.imguiCtx)
+
+	ImGuiApp.super.exit(self)
 end
 
-function ImGuiApp:event(event, eventPtr)
+function ImGuiApp:event(eventPtr)
 	assert(eventPtr, "forgot to pass the eventPtr")
 	ig.ImGui_ImplSDL2_ProcessEvent(eventPtr)
 end
