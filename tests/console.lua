@@ -9,7 +9,6 @@ if setfenv then setfenv(1,env) else _ENV = env end
 
 env.env = env
 App = require 'imguiapp.withorbit'()
-App.viewUseBuiltinMatrixMath = true
 App.title = 'Console Test'
 
 function App:initGL(...)
